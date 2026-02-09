@@ -1,0 +1,498 @@
+---
+# Google C++ Style Guide Configuration for ClangFormat
+# Based on LLVM clang-format version 14+
+# This configuration aims to replicate Google's C++ style as closely as possible
+
+# Base style to start from
+BasedOnStyle: Google
+
+# Language-specific settings
+Language: Cpp
+Standard: c++17
+
+#############################################################################
+# INDENTATION & SPACING
+#############################################################################
+
+# Use spaces instead of tabs
+UseTab: Never
+
+# Number of spaces for indentation
+IndentWidth: 4
+
+# Indent width for continuations
+ContinuationIndentWidth: 4
+
+# Number of columns for tab stops
+TabWidth: 4
+
+# Column limit (customized to 100)
+ColumnLimit: 120
+
+#############################################################################
+# ALIGNMENT
+#############################################################################
+
+# Align parameters on the open bracket
+AlignAfterOpenBracket: Align
+
+# Align array of structures
+AlignArrayOfStructures: None
+
+# Align consecutive assignments
+AlignConsecutiveAssignments: None
+
+# Align consecutive bit field members
+AlignConsecutiveBitFields: None
+
+# Align consecutive declarations
+AlignConsecutiveDeclarations: None
+
+# Align consecutive macros
+AlignConsecutiveMacros: None
+
+# Align escaped newlines in macros
+AlignEscapedNewlines: Left
+
+# Align operands of binary and ternary expressions
+AlignOperands: Align
+
+# Align trailing comments
+AlignTrailingComments: true
+
+#############################################################################
+# ARGUMENT & PARAMETER PACKING
+#############################################################################
+
+# Allow all arguments on next line
+AllowAllArgumentsOnNextLine: true
+
+# Allow all parameters of a function declaration on next line
+AllowAllParametersOfDeclarationOnNextLine: true
+
+# Break constructor initializer before colon and after commas
+AllowAllConstructorInitializersOnNextLine: true
+
+#############################################################################
+# BREAKING & WRAPPING
+#############################################################################
+
+# Allow short blocks on a single line
+AllowShortBlocksOnASingleLine: Never
+
+# Allow short case labels on a single line
+AllowShortCaseLabelsOnASingleLine: false
+
+# Allow short enums on a single line
+AllowShortEnumsOnASingleLine: true
+
+# Allow short functions on a single line
+AllowShortFunctionsOnASingleLine: Inline
+
+# Allow short if statements on a single line
+AllowShortIfStatementsOnASingleLine: WithoutElse
+
+# Allow short lambdas on a single line
+AllowShortLambdasOnASingleLine: All
+
+# Allow short loops on a single line
+AllowShortLoopsOnASingleLine: true
+
+# Break after function definition return type
+AlwaysBreakAfterDefinitionReturnType: None
+
+# Break after return type
+AlwaysBreakAfterReturnType: None
+
+# Always break before multiline strings
+AlwaysBreakBeforeMultilineStrings: true
+
+# Break before template declarations
+AlwaysBreakTemplateDeclarations: Yes
+
+# Bin pack arguments
+BinPackArguments: true
+
+# Bin pack parameters
+BinPackParameters: true
+
+# Brace wrapping control (not used much in Google style)
+BraceWrapping:
+  AfterCaseLabel: false
+  AfterClass: false
+  AfterControlStatement: Never
+  AfterEnum: false
+  AfterFunction: false
+  AfterNamespace: false
+  AfterObjCDeclaration: false
+  AfterStruct: false
+  AfterUnion: false
+  AfterExternBlock: false
+  BeforeCatch: false
+  BeforeElse: false
+  BeforeLambdaBody: false
+  BeforeWhile: false
+  IndentBraces: false
+  SplitEmptyFunction: true
+  SplitEmptyRecord: true
+  SplitEmptyNamespace: true
+
+# Break before binary operators
+BreakBeforeBinaryOperators: None
+
+# Break before braces style
+BreakBeforeBraces: Attach
+
+# Break before concept declarations
+BreakBeforeConceptDeclarations: true
+
+# Break before ternary operators
+BreakBeforeTernaryOperators: true
+
+# Break constructor initializers
+BreakConstructorInitializers: BeforeColon
+
+# Break after Java field annotations
+BreakAfterJavaFieldAnnotations: false
+
+# Break string literals
+BreakStringLiterals: true
+
+# Break inheritance list
+BreakInheritanceList: BeforeColon
+
+#############################################################################
+# COMMENTS
+#############################################################################
+
+# Reflow comments
+ReflowComments: true
+
+# Comment pragmas to prevent formatting
+CommentPragmas: '^ IWYU pragma:'
+
+#############################################################################
+# INCLUDES
+#############################################################################
+
+# Sort includes
+SortIncludes: CaseSensitive
+
+# Sort using declarations
+SortUsingDeclarations: true
+
+# Include categories for sorting
+IncludeBlocks: Regroup
+IncludeCategories:
+  # Main header for the source file
+  - Regex: '^".*\.h"'
+    Priority: 1
+    SortPriority: 0
+    CaseSensitive: false
+  # C system headers
+  - Regex: '^<.*\.h>'
+    Priority: 2
+    SortPriority: 0
+    CaseSensitive: false
+  # C++ standard library headers
+  - Regex: '^<.*'
+    Priority: 3
+    SortPriority: 0
+    CaseSensitive: false
+  # Other libraries' headers
+  - Regex: '.*'
+    Priority: 4
+    SortPriority: 0
+    CaseSensitive: false
+
+# Include is main source regex
+IncludeIsMainSourceRegex: '([-_](test|unittest))?$'
+
+# Regex for main include
+IncludeIsMainRegex: '(Test)?$'
+
+#############################################################################
+# INDENTATION SPECIFICS
+#############################################################################
+
+# Indent access modifiers
+IndentAccessModifiers: false
+
+# Indent case labels
+IndentCaseLabels: true
+
+# Indent case blocks
+IndentCaseBlocks: false
+
+# Indent goto labels
+IndentGotoLabels: true
+
+# Indent preprocessor directives
+IndentPPDirectives: None
+
+# Indent extern blocks
+IndentExternBlock: AfterExternBlock
+
+# Indent wrapped function names
+IndentWrappedFunctionNames: false
+
+#############################################################################
+# CONSTRUCTOR INITIALIZERS
+#############################################################################
+
+# Constructor initializer indentation
+ConstructorInitializerIndentWidth: 8
+
+#############################################################################
+# EMPTY LINES
+#############################################################################
+
+# Keep empty lines at the start of blocks
+KeepEmptyLinesAtTheStartOfBlocks: false
+
+# Maximum empty lines to keep
+MaxEmptyLinesToKeep: 1
+
+#############################################################################
+# NAMESPACES
+#############################################################################
+
+# Compact namespaces
+CompactNamespaces: false
+
+# Fix namespace comments
+FixNamespaceComments: true
+
+# Namespace indentation
+NamespaceIndentation: None
+
+#############################################################################
+# PENALTIES (for line breaking decisions)
+#############################################################################
+
+# Penalty for breaking before the first call parameter
+PenaltyBreakBeforeFirstCallParameter: 100
+
+# Penalty for each line break introduced inside a comment
+PenaltyBreakComment: 300
+
+# Penalty for breaking before the first parameter
+PenaltyBreakFirstLessLess: 120
+
+# Penalty for breaking after an open parenthesis (high penalty to keep first arg on same line)
+PenaltyBreakOpenParenthesis: 200
+
+# Penalty for each line break introduced inside a string literal
+PenaltyBreakString: 1000
+
+# Penalty for breaking before template declaration
+PenaltyBreakTemplateDeclaration: 10
+
+# Penalty for each character outside the column limit
+PenaltyExcessCharacter: 1000000
+
+# Penalty for putting the return type on its own line
+PenaltyReturnTypeOnItsOwnLine: 200
+
+# Penalty for each indentation level
+PenaltyIndentedWhitespace: 0
+
+#############################################################################
+# POINTERS & REFERENCES
+#############################################################################
+
+# Pointer and reference alignment
+PointerAlignment: Left
+
+# Reference alignment (follows pointer alignment if not set)
+ReferenceAlignment: Pointer
+
+# Derive pointer alignment
+DerivePointerAlignment: false
+
+#############################################################################
+# SPACES
+#############################################################################
+
+# Space after C style cast
+SpaceAfterCStyleCast: false
+
+# Space after logical not operator
+SpaceAfterLogicalNot: false
+
+# Space after template keyword
+SpaceAfterTemplateKeyword: true
+
+# Space before assignment operators
+SpaceBeforeAssignmentOperators: true
+
+# Space before C++11 braced list
+SpaceBeforeCpp11BracedList: false
+
+# Space before constructor initializer colon
+SpaceBeforeCtorInitializerColon: true
+
+# Space before inheritance colon
+SpaceBeforeInheritanceColon: true
+
+# Space before parentheses
+SpaceBeforeParens: ControlStatements
+
+# Space before range based for loop colon
+SpaceBeforeRangeBasedForLoopColon: true
+
+# Space before square brackets
+SpaceBeforeSquareBrackets: false
+
+# Space in empty blocks
+SpaceInEmptyBlock: false
+
+# Space in empty parentheses
+SpaceInEmptyParentheses: false
+
+# Spaces before trailing comments
+SpacesBeforeTrailingComments: 2
+
+# Spaces in angles
+SpacesInAngles: Never
+
+# Spaces in C style cast parentheses
+SpacesInCStyleCastParentheses: false
+
+# Spaces in conditional statements
+SpacesInConditionalStatement: false
+
+# Spaces in container literals
+SpacesInContainerLiterals: true
+
+# Spaces in parentheses
+SpacesInParentheses: false
+
+# Spaces in square brackets
+SpacesInSquareBrackets: false
+
+#############################################################################
+# LINE ENDINGS
+#############################################################################
+
+# Use CRLF for line endings
+UseCRLF: false
+
+#############################################################################
+# MACROS
+#############################################################################
+
+# Macros that behave like foreach loops
+ForEachMacros:
+  - foreach
+  - Q_FOREACH
+  - BOOST_FOREACH
+
+# Macros that behave like if statements
+IfMacros:
+  - KJ_IF_MAYBE
+
+# Statement attribute-like macros
+StatementAttributeLikeMacros:
+  - Q_EMIT
+
+# Macros that should be interpreted as complete statements
+StatementMacros:
+  - Q_UNUSED
+  - QT_REQUIRE_VERSION
+
+# Macros that open a namespace
+NamespaceMacros: []
+
+# Type names that should be treated as macros
+TypenameMacros:
+  - STACK_OF
+  - LIST
+
+# Macros that expand to attributes
+AttributeMacros:
+  - __capability
+
+#############################################################################
+# MISCELLANEOUS
+#############################################################################
+
+# Disable formatting
+DisableFormat: false
+
+# Insert trailing commas in lists
+InsertTrailingCommas: None
+
+# JavaScript quotes
+JavaScriptQuotes: Leave
+
+# JavaScript wrap imports
+JavaScriptWrapImports: true
+
+# Objective-C settings
+ObjCBinPackProtocolList: Never
+ObjCBlockIndentWidth: 2
+ObjCBreakBeforeNestedBlockParam: true
+ObjCSpaceAfterProperty: false
+ObjCSpaceBeforeProtocolList: true
+
+# Pack constructor initializers
+PackConstructorInitializers: NextLine
+
+# Preprocessor indentation
+PPIndentWidth: -1
+
+# Qualifier alignment (const, volatile, etc.)
+QualifierAlignment: Leave
+
+# Raw string formats
+RawStringFormats:
+  - Language: Cpp
+    Delimiters:
+      - cc
+      - CC
+      - cpp
+      - Cpp
+      - CPP
+      - 'c++'
+      - 'C++'
+    CanonicalDelimiter: ''
+    BasedOnStyle: google
+  - Language: TextProto
+    Delimiters:
+      - pb
+      - PB
+      - proto
+      - PROTO
+    EnclosingFunctions:
+      - EqualsProto
+      - EquivToProto
+      - PARSE_PARTIAL_TEXT_PROTO
+      - PARSE_TEST_PROTO
+      - PARSE_TEXT_PROTO
+      - ParseTextOrDie
+      - ParseTextProtoOrDie
+      - ParseTestProto
+      - ParsePartialTestProto
+    CanonicalDelimiter: pb
+    BasedOnStyle: google
+
+# Remove braces from LLVM style
+RemoveBracesLLVM: false
+
+# Separate definition blocks
+SeparateDefinitionBlocks: Leave
+
+# Short namespace lines
+ShortNamespaceLines: 1
+
+# Space around pointer qualifiers
+SpaceAroundPointerQualifiers: Default
+
+# Empty line before access modifier
+EmptyLineBeforeAccessModifier: LogicalBlock
+
+# Empty line after access modifier
+EmptyLineAfterAccessModifier: Never
+
+...

@@ -3,8 +3,9 @@
 ## Dependencies
 
 - opencv
-- numpy
+- gcc
 
 ## How to
 
+Step 1: 
 `python3 submission.py`

@@ -5,3 +5,6 @@ CVIP/assn2/cpp_assn2/build/*
 # Runtime outputs
 CVIP/assn2/cpp_assn2/outputs/*
 CVIP/assn2/python_assn2/outputs/*
+
+# Compressed packages
+*.zip

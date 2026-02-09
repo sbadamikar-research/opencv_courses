@@ -18,6 +18,7 @@ pos_line2 = (int(0.2 * banner_height), int(0.9 * banner_height))
 # endregion
 
 img = None
+predraw = None
 flag_drawing_box = False
 pt_button_down = None
 boxes = []
@@ -25,7 +26,7 @@ boxes = []
 
 def cbMouseEvent(event, x, y, flags, param):
 
-    global flag_drawing_box, boxes, pt_button_down, img
+    global flag_drawing_box, boxes, pt_button_down, img, predraw
 
     if (not flag_drawing_box) and (event == cv2.EVENT_LBUTTONDOWN):
 
@@ -35,29 +36,40 @@ def cbMouseEvent(event, x, y, flags, param):
         print(f"[INFO] Drawing from <{x}, {y}>")
         flag_drawing_box = True
         pt_button_down = (x, y)
+        predraw = img.copy()
         return
 
-    if (flag_drawing_box) and (event == cv2.EVENT_LBUTTONUP):
-        flag_drawing_box = False
+    if (flag_drawing_box):
+
+        print(flag_drawing_box)
+        print(pt_button_down)
 
         box = (
             (min(x, pt_button_down[0]),
-             min(y, pt_button_down[1])),
+            min(y, pt_button_down[1])),
             (max(x, pt_button_down[0]),
-             max(y, pt_button_down[1]))
+            max(y, pt_button_down[1]))
         )
 
-        boxes.append(box)
+        if (event == cv2.EVENT_MOUSEMOVE):
+            img = predraw.copy()
+        elif (event == cv2.EVENT_LBUTTONUP):
+            pt_button_down = None
+            img = predraw.copy()
+            predraw = None
+            flag_drawing_box = False
+            boxes.append(box)
+        else:
+            return
 
         line_thickness = int((0.005 * img.shape[0]))
         cv2.rectangle(img=img,
-                      pt1=boxes[-1][0],
-                      pt2=boxes[-1][1],
-                      color=(0, 255, 0),
-                      thickness=line_thickness,
-                      lineType=cv2.LINE_4)
+                    pt1=box[0],
+                    pt2=box[1],
+                    color=(0, 255, 0),
+                    thickness=line_thickness,
+                    lineType=cv2.LINE_4)
 
-        pt_button_down = None
 
 
 def resetWindow():

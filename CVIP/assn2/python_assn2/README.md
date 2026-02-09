@@ -7,4 +7,7 @@
 
 ## How to
 
-`python3 submission.py`
+```
+$ cd python_assn2
+$ python3 submission.py
+```

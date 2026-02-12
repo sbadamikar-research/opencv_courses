@@ -1,11 +1,8 @@
 # Build files
-CVIP/assn1/build/*
-CVIP/assn2/cpp_assn2/build/*
-CVIP/assn3/cpp_assn3/build/*
+**/build
 
 # Runtime outputs
-CVIP/assn2/cpp_assn2/outputs/*
-CVIP/assn2/python_assn2/outputs/*
+**/outputs
 
 # Compressed packages
 *.zip

@@ -1,6 +1,7 @@
 # Build files
 CVIP/assn1/build/*
 CVIP/assn2/cpp_assn2/build/*
+CVIP/assn3/cpp_assn3/build/*
 
 # Runtime outputs
 CVIP/assn2/cpp_assn2/outputs/*

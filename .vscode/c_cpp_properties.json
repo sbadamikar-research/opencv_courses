@@ -4,8 +4,8 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:CONDA_PREFIX}/include/opencv4",
-                "${env:CONDA_PREFIX}/include"
+                "/home/ANT.AMAZON.COM/basancht/miniconda3/envs/learn_opencv/include/opencv4",
+                "/home/ANT.AMAZON.COM/basancht/miniconda3/envs/learn_opencv/include"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",

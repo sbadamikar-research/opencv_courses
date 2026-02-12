@@ -27,7 +27,7 @@ ContinuationIndentWidth: 4
 TabWidth: 4
 
 # Column limit (customized to 100)
-ColumnLimit: 120
+ColumnLimit: 80
 
 #############################################################################
 # ALIGNMENT
@@ -111,10 +111,10 @@ AlwaysBreakBeforeMultilineStrings: true
 AlwaysBreakTemplateDeclarations: Yes
 
 # Bin pack arguments
-BinPackArguments: true
+BinPackArguments: false
 
 # Bin pack parameters
-BinPackParameters: true
+BinPackParameters: false
 
 # Brace wrapping control (not used much in Google style)
 BraceWrapping:

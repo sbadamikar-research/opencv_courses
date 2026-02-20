@@ -1,8 +1,11 @@
 # Build files
-**/build
+**/build/*
 
 # Runtime outputs
-**/outputs
+**/outputs/*
+
+# Playground
+**/playground/*
 
 # Compressed packages
 *.zip

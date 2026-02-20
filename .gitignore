@@ -12,3 +12,10 @@
 
 # VS Code settings
 .vscode/*
+
+# OpenCV images
+**/data/images/*
+
+# Caches
+**/cache/*
+**/__pycache__/*

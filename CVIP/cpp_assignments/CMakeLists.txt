@@ -1,14 +1,14 @@
-cmake_minimum_required(VERSION 2.8.12)
+cmake_minimum_required(VERSION 3.10)
 
-PROJECT(CV1_Assignment2)
+PROJECT(CVIP_Assignments)
 SET(CMAKE_CXX_STANDARD 11)
 
 ######################## EDIT IF REQUIRED ####################
 # ###Uncomment the line below and specify the path to OpenCV directory i.e. the path to the OpenCVConfig.cmake file. Check the examples given below.
-SET(OpenCV_DIR $CONDA_PREFIX/lib/cmake/opencv4)
+SET(OpenCV_DIR $CONDA_PREFIX/envs/learn_opencv/lib/cmake/opencv4/OpenCVConfig.cmake)
 SET(CMAKE_PREFIX_PATH $ENV{CONDA_PREFIX} ${CMAKE_PREFIX_PATH})
 
-SET(OpenCV_DIT /usr/local/share/OpenCV)
+# SET(OpenCV_DIR /usr/local/share/OpenCV)
 
 ################### OpenCV_DIR Examples  #####################
 
@@ -32,8 +32,8 @@ find_package( OpenCV REQUIRED )
 include_directories( ${OpenCV_INCLUDE_DIRS})
 
 MACRO(add_example name)
-  ADD_EXECUTABLE(submission_${name} ${name}.cpp)
-  TARGET_LINK_LIBRARIES(${name} ${OpenCV_LIBS} )
+  ADD_EXECUTABLE(${name}_submission ${name}.cpp)
+  TARGET_LINK_LIBRARIES(${name}_submission ${OpenCV_LIBS} )
 ENDMACRO()
 
 add_example(assn2)

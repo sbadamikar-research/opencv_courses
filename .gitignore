@@ -9,3 +9,6 @@
 
 # Compressed packages
 *.zip
+
+# VS Code settings
+.vscode/*

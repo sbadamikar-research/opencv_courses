@@ -14,7 +14,8 @@
 .vscode/*
 
 # OpenCV images
-**/data/images/*
+**/data/**
+**/dataset/**
 
 # Caches
 **/cache/*

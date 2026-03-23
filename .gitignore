@@ -3,6 +3,7 @@
 
 # Runtime outputs
 **/outputs/*
+**/Logs_Checkpoints/*
 
 # Playground
 **/playground/*
